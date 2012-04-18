@@ -1,12 +1,12 @@
 ﻿using JsMinifier.Handler.Cache;
 
-namespace JsMinifier.Handler.Engine
+namespace JsMinifier.Handler.Engine.Plain
 {
-    class EngineWithCache : Engine
+    class PlainEngineWithCache : PlainEngine
     {
         private readonly ICache _cache;
 
-        public EngineWithCache(ICache cache)
+        public PlainEngineWithCache(ICache cache)
         {
             _cache = cache;
         }

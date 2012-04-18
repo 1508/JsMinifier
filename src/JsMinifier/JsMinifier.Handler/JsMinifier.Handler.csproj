@@ -59,9 +59,15 @@
     <Compile Include="Cache\AspCache.cs" />
     <Compile Include="Cache\ICache.cs" />
     <Compile Include="Configuration\JsMinifierConfiguration.cs" />
-    <Compile Include="Engine\Engine.cs" />
-    <Compile Include="Engine\EngineWithCache.cs" />
+    <Compile Include="Engine\IEngineFactory.cs" />
+    <Compile Include="Engine\IncludeExcludeEngineFactory.cs" />
+    <Compile Include="Engine\Minify\IMinifyEngine.cs" />
+    <Compile Include="Engine\Minify\MinifyEngine.cs" />
+    <Compile Include="Engine\Minify\MinifyEngineWithCache.cs" />
     <Compile Include="Engine\IEngine.cs" />
+    <Compile Include="Engine\Plain\IPlainEngine.cs" />
+    <Compile Include="Engine\Plain\PlainEngine.cs" />
+    <Compile Include="Engine\Plain\PlainEngineWithCache.cs" />
     <Compile Include="FileResolver\IFileResolver.cs" />
     <Compile Include="HttpHandler.cs" />
     <Compile Include="Http\Http.cs" />

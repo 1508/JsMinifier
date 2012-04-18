@@ -18,10 +18,10 @@ namespace JsMinifier.Handler.Cache
 
         public void Insert(string path, string content)
         {
-            _http.Context.Response.AddFileDependency(this._fileResolver.GetFullPath(path));
+            string filePath = this._fileResolver.GetFullPath(path);
+            _http.Context.Response.AddFileDependency(filePath);
 
-            _http.Context.Cache.Add(path, content, null, System.Web.Caching.Cache.NoAbsoluteExpiration,
-                                    TimeSpan.FromMinutes(30), CacheItemPriority.Default, null);
+            _http.Context.Cache.Insert(path, content, new CacheDependency(filePath));
         }
 
         public string Get(string path)

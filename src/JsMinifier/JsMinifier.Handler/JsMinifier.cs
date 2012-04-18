@@ -1,3 +1,4 @@
+using System;
 using JsMinifier.Handler.Engine;
 using JsMinifier.Handler.Http;
 using JsMinifier.Handler.Logger;
@@ -10,22 +11,22 @@ namespace JsMinifier.Handler
     {
         private readonly ILogger _logger;
         private readonly IHttp _http;
-        private readonly IEngine _engine;
         private readonly IReader _reader;
         private readonly IResponse _response;
+        private readonly Func<IEngineFactory> _engineFactory;
 
         public JsMinifier()
         {
             this._logger = new NullLogger();
         }
 
-        public JsMinifier(ILogger logger, IHttp http, Engine.IEngine engine, Reader.IReader reader, Response.IResponse response)
+        public JsMinifier(ILogger logger, IHttp http,Reader.IReader reader, Response.IResponse response, Func<IEngineFactory> engineFactory)
         {
             _logger = logger;
             _http = http;
-            _engine = engine;
             _reader = reader;
             _response = response;
+            _engineFactory = engineFactory;
         }
 
         public void Execute()
@@ -34,7 +35,7 @@ namespace JsMinifier.Handler
 
             var source = this._reader.ReadContent(jsPath);
 
-            this._response.WriteJs(this._engine.Run(source, jsPath));
+            this._response.WriteJs(this._engineFactory().GetEngine().Run(source, jsPath));
         }
     }
 }

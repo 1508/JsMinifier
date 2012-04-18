@@ -1,6 +1,6 @@
-﻿namespace JsMinifier.Handler.Engine
+﻿namespace JsMinifier.Handler.Engine.Minify
 {
-    class Engine : IEngine
+    class MinifyEngine : IMinifyEngine
     {
         public virtual string Run(string source, string path)
         {

@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="test.js" />
+    <Content Include="test.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

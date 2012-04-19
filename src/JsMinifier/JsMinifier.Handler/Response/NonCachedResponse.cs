@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO.Compression;
+using System.Threading;
 using JsMinifier.Handler.Http;
 
 namespace JsMinifier.Handler.Response

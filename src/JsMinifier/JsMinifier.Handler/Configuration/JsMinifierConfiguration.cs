@@ -61,10 +61,9 @@ namespace JsMinifier.Handler.Configuration
                     this.Excludes.Add(exclude.InnerText);
                 }
             }
-            else
-            {
-                this.Excludes.Add(".min.");
-            }
+
+            this.Excludes.Add(".min.");
+
             return this;
         }
     }

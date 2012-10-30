@@ -25,7 +25,7 @@ namespace JsMinifier.Handler.Engine
         {
             string localPath = this._http.Context.Request.Url.LocalPath;
 
-            if(this._configuration.Excludes.Any(t => localPath.Contains(t)))
+            if (this._configuration.Excludes.Any(t => localPath.Contains(t)) || !this._configuration.Minify)
             {
                 return this._plainEngine;
             }

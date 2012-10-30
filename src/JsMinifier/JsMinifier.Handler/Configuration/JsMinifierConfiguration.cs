@@ -30,6 +30,8 @@ namespace JsMinifier.Handler.Configuration
         /// </summary>
         public bool Cache { get; set; }
 
+        public bool Minify { get; set; }
+
         private List<string> _excludes;
 
         /// <summary>
@@ -51,6 +53,7 @@ namespace JsMinifier.Handler.Configuration
         public object Create(object parent, object configContext, XmlNode section)
         {
             this.Cache = section.Attributes["Cache"] != null ? bool.Parse(section.Attributes["Cache"].Value) : false;
+            this.Minify = section.Attributes["Minify"] != null && bool.Parse(section.Attributes["Minify"].Value);
             XmlNode nodeExcludes = section.SelectSingleNode("Excludes");
 
             if (nodeExcludes != null)

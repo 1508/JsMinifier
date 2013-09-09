@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO.Compression;
+using System.Net.NetworkInformation;
 using System.Threading;
 using JsMinifier.Handler.Http;
 
@@ -46,6 +47,11 @@ namespace JsMinifier.Handler.Response
             if (preferred.IsEmpty && encodings.AcceptWildcard && encodings.Find("gzip").IsEmpty)
             {
                 preferred = new QValue("gzip");
+            }
+
+            if (string.IsNullOrWhiteSpace(preferred.Name))
+            {
+                return;
             }
 
             // handle the preferred encoding
